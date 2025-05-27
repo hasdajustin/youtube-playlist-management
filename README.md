@@ -1,4 +1,4 @@
-# YouTube Playlist Web App
+# Youtube Playlist Management Web App
 
 A React-based web application that allows users to search YouTube videos, create personalized playlists, and play videos within the app. The app uses the YouTube Data API to fetch videos and supports saving playlists locally.
 
@@ -40,8 +40,8 @@ A React-based web application that allows users to search YouTube videos, create
 
 1. Clone the repository:  
    ```bash
-   git clone https://github.com/yourusername/youtube-playlist-app.git
-   cd youtube-playlist-app
+   git clone https://github.com/hasdajustin/youtube-playlist-management
+   cd youtube-playlist-management
 
 2. Install dependencies:
     ```
