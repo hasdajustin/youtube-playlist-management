@@ -9,12 +9,28 @@ import Player from './components/Player';
 const API_KEY = process.env.REACT_APP_YOUTUBE_API_KEY;
 
 const App = () => {
+  const [theme, setTheme] = useState('light');
   const [videos, setVideos] = useState([]);
   const [playlist, setPlaylist] = useState(() => {
     const saved = localStorage.getItem('playlist');
     return saved ? JSON.parse(saved) : [];
   });
   const [currentVideo, setCurrentVideo] = useState(null);
+
+  // Load theme from localStorage
+  useEffect(() => {
+    const savedTheme = localStorage.getItem('theme') || 'light';
+    setTheme(savedTheme);
+    document.body.className = savedTheme;
+  }, []);
+
+  // Toggle theme
+  const toggleTheme = () => {
+    const newTheme = theme === 'light' ? 'dark' : 'light';
+    setTheme(newTheme);
+    document.body.className = newTheme;
+    localStorage.setItem('theme', newTheme);
+  };
 
   const searchVideos = async (term) => {
     try {
@@ -55,14 +71,19 @@ const App = () => {
   };
 
   return (
-    <div className="container-fluid bg-light p-5" style={{ height: '100vh', overflow: 'hidden' }}>
+    <div className={`container-fluid p-5 ${theme === 'dark' ? 'bg-dark text-white' : 'bg-light'}`} style={{ height: '100vh', overflow: 'hidden' }}>
+      <div className="d-flex justify-content-end">
+        <button onClick={toggleTheme} className="btn btn-sm btn-secondary mb-3">
+          Switch to {theme === 'light' ? 'Dark' : 'Light'} Mode
+        </button>
+      </div>
       <div className="row h-100">
 
         {/* Left side */}
         <div className="col-md-5 d-flex flex-column h-100">
           <SearchBar onSearch={searchVideos} />
           <div
-            className="border rounded p-3 bg-white mt-2"
+            className={`border rounded p-3 ${theme === 'dark' ? 'bg-secondary text-white' : 'bg-white'}`}
             style={{ flex: 1, overflowY: 'auto', minHeight: 0 }}
           >
             <VideoList videos={videos} onAdd={addToPlaylist} />
@@ -72,7 +93,7 @@ const App = () => {
         {/* Right side */}
         <div className="col-md-7 d-flex flex-column h-100">
           <div
-            className="mb-3 border rounded p-3 bg-white"
+            className={`mb-3 border rounded p-3 ${theme === 'dark' ? 'bg-secondary text-white' : 'bg-white'}`}
             style={{ height: '1000px', overflow: 'hidden' }}
           >
             {currentVideo ? (
@@ -90,7 +111,7 @@ const App = () => {
             <h3 className='py-2 sticky-top'>Your Playlist</h3>
           </div>
           <div
-            className="flex-grow-1 overflow-auto border rounded p-3 bg-white"
+            className={`flex-grow-1 overflow-auto border rounded p-3 ${theme === 'dark' ? 'bg-secondary text-white' : 'bg-white'}`}
             style={{ minHeight: 0 }}
           >
             <Playlist playlist={playlist} onRemove={removeFromPlaylist} onPlay={playVideo} />
