@@ -1,17 +1,4 @@
 
-/* Add this at the top or bottom */
-body.light {
-  background-color: #ffffff;
-  color: #000000;
-}
-
-body.dark {
-  background-color: #121212;
-  color: #ffffff;
-}
-
-
-
 .App {
   text-align: center;
 }
