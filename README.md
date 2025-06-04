@@ -22,10 +22,10 @@ A React-based web application that allows users to search YouTube videos, create
 
 ## Tech Stack
 
-- **Frontend:** React.js, Bootstrap  
-- **API:** YouTube Data API v3  
-- **Video Player:** ReactPlayer  
-- **Storage:** localStorage for playlist persistence  
+- **Frontend:** React.js, Bootstrap
+- **API:** YouTube Data API v3
+- **Video Player:** ReactPlayer
+- **Storage:** localStorage for playlist persistence
 
 ---
 
@@ -33,28 +33,37 @@ A React-based web application that allows users to search YouTube videos, create
 
 ### Prerequisites
 
-- Node.js and npm installed  
+- Node.js and npm installed
 - YouTube Data API key (obtain from [Google Developer Console](https://console.developers.google.com/))
 
 ### Installation
 
-1. Clone the repository:  
+1. Clone the repository:
+
    ```bash
    git clone https://github.com/hasdajustin/youtube-playlist-management
    cd youtube-playlist-management
 
+   ```
+
 2. Install dependencies:
-    ```
-    npm install
+
+   ```
+   npm install
+
+   ```
 
 3. Create a `.env` file in the root directory and add your YouTube API key:
-    REACT_APP_YOUTUBE_API_KEY=your_youtube_api_key_here
+   REACT_APP_YOUTUBE_API_KEY=your_youtube_api_key_here
 
-3. Start the development server:
-    `npm start`
+4. Start the development server:
+   `npm start`
 
-3. Open the app in your browser:
-    `http://localhost:3000`
+5. Open the app in your browser:
+   `http://localhost:3000`
 
 ## Development Status
+
 This project is currently a **work in progress**.
+
+Added a Dark mode button by Fahim . 😉
